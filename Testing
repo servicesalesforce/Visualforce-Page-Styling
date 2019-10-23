@@ -1,3 +1,7 @@
+
+Salesforce Style
+------------------
+
 <apex:page standardController="Account" tabStyle="Account">
     <!-- To display the record detail Page-->
     <apex:detail />
