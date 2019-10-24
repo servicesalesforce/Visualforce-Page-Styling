@@ -1,0 +1,40 @@
+Controller Extensions
+/******
+Class Name : OppController
+Purpose: This class is used to set the Page Size 
+Created Date : 24th Oct 2019
+Created By : Sampath Arjunan
+
+********/
+public class OppController {
+    public OppController(ApexPages.StandardSetController controller) {
+        controller.setPageSize(10);
+    }
+
+}
+
+
+
+
+
+
+VF Page:
+
+<apex:page standardController="Opportunity" extensions="OppController" recordSetVar="opportunities">
+    <apex:pageBlock title="Viewing Opportunities">
+        <apex:form id="theForm">
+            <apex:pageBlockSection>
+                <apex:dataList var="opp" value="{!opportunities}">
+                    {!opp.Name}
+                </apex:dataList>
+            </apex:pageBlockSection>
+            <apex:panelGrid columns="4">
+                <apex:commandLink action="{!first}">FIRST</apex:commandLink>
+                <apex:commandLink action="{!next}">NEXT</apex:commandLink>
+                <apex:commandLink action="{!previous}">PREVIOUS</apex:commandLink>
+                <apex:commandLink action="{!last}">LAST</apex:commandLink>
+            </apex:panelGrid>
+
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>
