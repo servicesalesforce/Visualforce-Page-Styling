@@ -66,6 +66,67 @@ Stylesheet (Static Resource)
 -----------------------------
 
 
+## CSS Example
+
+<apex:stylesheet value="/resources/htdocs/css/basic.css"/>
+
+The example above renders the following HTML:
+
+<link rel="stylesheet"  type="text/css" href="/resources/htdocs/css/basic.css"/>
+
+
+Zip Resource Example
+
+<apex:stylesheet value="{!URLFOR($Resource.StyleZip, 'basic.css')}"/>
+
+The example above renders the following HTML:
+
+<link rel="stylesheet"  type="text/css" href="[generatedId]/basic.css"/>
+
+
+
+
+
+## JAVA Script Example:
+
+
+<apex:includeScript value="{!$Resource.example_js}"/>
+
+HTML Output
+
+<script type='text/javascript' src='/resource/1233160164000/example_js'>
+
+
+
+
+## Images Example:
+
+<apex:page standardController="Account" tabStyle="Account">
+    <apex:form>
+        <apex:pageblock Title="Direct file in Static Resource - Example">
+            <!-- direct file in Static Resource --> 
+       		 Apex: <apex:image id="theImage" value="/resource/1571895553000/logo" width="220" height="55"/> <!--Apex -->
+			 HTML : <img id="theImagehtml" src="/resource/1571895553000/logo" width="220" height="55"/> <!-- HTML-->
+        </apex:pageblock>
+        
+        
+         <apex:pageblock Title="Zip File with sub folder in Static Resource - Example">
+            <!-- direct file in Static Resource --> 
+            Apex: <apex:image id="theimage1" url="{!URLFOR($Resource.Samplecontent, '/test/images/Supermums-Logo-01.png')}" width="50" height="50" /><!--Apex -->
+            HTML : <img id="theImagehtml1" src="/resource/1571896352000/Samplecontent/test/images/Supermums-Logo-01.png" width="50" height="50"/> <!-- HTML-->
+        </apex:pageblock>
+        
+        
+        <apex:pageblock Title="Zip File without sub folder in Static Resource - Example">
+            <!-- direct file in Static Resource --> 
+            Apex: <apex:image id="theimage2" url="{!URLFOR($Resource.withoutfoldercontent, 'withoutfolder/Supermums-Logo-01.png')}" width="50" height="50" /><!--Apex -->
+            HTML : <img id="theImagehtml2" src="/resource/1571897321000/withoutfoldercontent/withoutfolder/Supermums-Logo-01.png" width="50" height="50"/> <!-- HTML-->
+        </apex:pageblock>
+        
+    </apex:form>
+</apex:page>
+
+
 
 
 
