@@ -68,33 +68,35 @@ Stylesheet (Static Resource)
 
 ## CSS Example
 
-<apex:stylesheet value="/resources/htdocs/css/basic.css"/>
+ <apex:pageblock Title="CSS - Example">
+    <apex:pageblocksection title="Direct file in Static Resource - Example">
+        <!--Apex: <apex:stylesheet value="/resource/1571898681000/csscontent"/>-->
+        <!--HTML : <link rel="stylesheet"  type="text/css" href="/resource/1571898681000/csscontent"/>-->
+        <apex:outputText value="Styled Text in a sample style class" styleClass="sample" />
+    </apex:pageblocksection>
 
-The example above renders the following HTML:
+    <apex:pageblocksection title="Zip File with sub folder in Static Resource - Example">
+        <!--Apex: <apex:stylesheet value="{!URLFOR($Resource.Zipwithfolder, 'csswithsubfolder/CSS/customcss.css')}"/> -->
+        <!--HTML : <link rel="stylesheet"  type="text/css" href="/resource/1571899367000/Zipwithfolder/csswithsubfolder/CSS/customcss.css"/>-->
+        <apex:outputText value="Styled Text in a sample style class" styleClass="sample" />
+    </apex:pageblocksection>
 
-<link rel="stylesheet"  type="text/css" href="/resources/htdocs/css/basic.css"/>
-
-
-Zip Resource Example
-
-<apex:stylesheet value="{!URLFOR($Resource.StyleZip, 'basic.css')}"/>
-
-The example above renders the following HTML:
-
-<link rel="stylesheet"  type="text/css" href="[generatedId]/basic.css"/>
-
+    <apex:pageblocksection title="Zip File without sub folder in Static Resource - Example">
+        <!--Apex: <apex:stylesheet value="{!URLFOR($Resource.zipwithoutfolder, 'csswithoutsubfolder/customcss.css')}"/>-->
+        <!--HTML : <link rel="stylesheet"  type="text/css" href="/resource/1571899660000/zipwithoutfolder/csswithoutsubfolder/customcss.css"/>-->
+        <apex:outputText value="Styled Text in a sample style class" styleClass="sample" />
+    </apex:pageblocksection>
+</apex:pageblock>
 
 
 
 
 ## JAVA Script Example:
 
-
-<apex:includeScript value="{!$Resource.example_js}"/>
-
-HTML Output
-
-<script type='text/javascript' src='/resource/1233160164000/example_js'>
+ <apex:pageblock Title="JS - Example">
+     Apex: <apex:includeScript value="{!URLFOR($Resource.site, '/Site/sitecontent/js/jquery.1.8.3.min.js')}"/>
+     <!--HTML  <script type="text/javascript" src="/resource/1571901073000/Site/sitecontent/js/jquery.1.8.3.min.js"></script>-->
+</apex:pageblock> 
 
 
 
